@@ -1,0 +1,37 @@
+.task-list-container {
+    padding: 20px;
+    border-radius: 8px;
+    width: calc(100% - 70px); /* Full width minus margins */
+    margin: 20px; /* Same margins as TaskInput */
+    box-sizing: border-box;
+    border: none; /* Remove border outline */
+    box-shadow: none; /* Remove box shadow */
+  }
+  
+  .task-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  .task-checkbox {
+    margin-right: 10px;
+  }
+  
+  .task-text {
+    flex: 1; /* Allow text to take up available space */
+    font-size: 20px; /* Increase font size */
+  }
+  
+  .task-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+    width: calc(100% - 40px); /* Match width of task input container */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  
