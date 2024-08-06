@@ -1,38 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaStar, FaEdit } from 'react-icons/fa';
 import './TaskList.css';
 
-const TaskList = ({ tasks }) => {
-  const [starredTasks, setStarredTasks] = useState([]);
-  const [isEditMenuOpen, setIsEditMenuOpen] = useState(false);
-
+const TaskList = ({ tasks, updateTasks, isCardMode }) => {
   const toggleStar = (index) => {
-    if (starredTasks.includes(index)) {
-      setStarredTasks(starredTasks.filter((i) => i !== index));
-    } else {
-      setStarredTasks([...starredTasks, index]);
-    }
+    const updatedTasks = tasks.map((task, i) =>
+      i === index ? { ...task, starred: !task.starred } : task
+    );
+    updateTasks(updatedTasks);
   };
 
   const handleEditClick = () => {
-    setIsEditMenuOpen(!isEditMenuOpen);
-    // Additional logic to open the menu from the right side can be implemented here
+    // Add logic to open the edit menu component
   };
 
   return (
     <>
       {tasks.length > 0 && (
-        <div className="task-list-container">
+        <div className={`task-list-container ${isCardMode ? 'card-mode' : ''}`}>
           {tasks.map((task, index) => (
             <div key={index} className="task-item">
-              <input type="checkbox" className="task-checkbox" />
-              <div className="task-text">{task}</div>
-              <FaEdit className="task-edit" onClick={handleEditClick} />
-              <FaStar
-                className={`task-star ${starredTasks.includes(index) ? 'filled' : ''}`}
-                onClick={() => toggleStar(index)}
-              />
-              <div className="task-divider"></div>
+              <div className="task-content">
+                <input type="checkbox" className="task-checkbox" />
+                <div className="task-text">{task.text}</div>
+              </div>
+              <div className="task-icons">
+                <FaEdit className="task-edit" onClick={handleEditClick} />
+                <FaStar
+                  className={`task-star ${task.starred ? 'filled' : ''}`}
+                  onClick={() => toggleStar(index)}
+                />
+              </div>
+              {!isCardMode && <div className="task-divider"></div>}
             </div>
           ))}
         </div>

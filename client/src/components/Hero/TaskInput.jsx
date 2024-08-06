@@ -1,38 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaBell, FaRedo } from 'react-icons/fa';
 import './TaskInput.css';
 
 const TaskInput = ({ onAddTask }) => {
   const [task, setTask] = useState('');
 
-  useEffect(() => {
-    // Load tasks from localStorage when the component mounts
-    const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    if (savedTasks.length > 0) {
-      onAddTask(savedTasks);
-    }
-  }, [onAddTask]);
-
   const handleTaskChange = (e) => {
     setTask(e.target.value);
   };
 
   const handleAddTask = () => {
-    if (task.trim() === '') return;
-
-    // Retrieve tasks from localStorage
-    const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    
-    // Add the new task
-    const updatedTasks = [...savedTasks, task];
-    
-    // Save updated tasks to localStorage
-    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
-
-    // Update the tasks in the parent component
-    onAddTask(updatedTasks);
-    
-    setTask('');
+    if (task.trim()) {
+      onAddTask({ text: task, starred: false });
+      setTask('');
+    }
   };
 
   return (

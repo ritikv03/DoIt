@@ -59,7 +59,7 @@ const Header = () => {
         </div>
       </div>
       <main className={`hero ${isMenuOpen ? 'menu-open' : ''}`}>
-        <Hero />
+        <Hero isCardMode={isCardMode} />
       </main>
     </>
   );
