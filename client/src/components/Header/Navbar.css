@@ -1,0 +1,90 @@
+/* Ensure Navbar is positioned correctly and content is visible */
+.navbar {
+  position: fixed; /* Fix the position to the left side */
+  top: 60px; /* Ensure it's below the header */
+  left: 0;
+  width: 250px; /* Adjust width as needed */
+  height: calc(100vh - 60px); /* Adjust height to avoid overlap with header */
+  background-color: rgba(200, 236, 200, 0.803); /* Light green color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease; /* Smooth transition for sliding effect */
+  transform: translateX(-100%); /* Initially hidden off-screen */
+  z-index: 999; /* Ensure it's below the header but above other content */
+  overflow: auto; /* Ensure content is scrollable if needed */
+}
+
+.navbar.open {
+  transform: translateX(0); /* Slide in from the left */
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.greeting {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 10px 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .profile-section {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .profile-picture {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+
+  .greeting {
+    font-size: 16px;
+  }
+}

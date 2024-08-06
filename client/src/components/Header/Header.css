@@ -5,16 +5,23 @@
     padding: 10px 20px;
     background-color: transparent;
     color: var(--header-text-color);
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 1000;
   }
   
   .app-name {
     display: flex;
     align-items: center;
-    font-size: 30px
+    font-size: 30px;
+  }
+  
+  .menu-toggle-icon {
+    margin-right: 20px;
   }
   
   .app-name-text {
-    font-size: 30px; /* Increased to match icon size */
+    font-size: 30px;
     font-weight: bold;
     color: green;
     margin-left: 8px;
@@ -37,8 +44,12 @@
     transform: scale(1.2);
   }
   
-  body.dark-mode {
+  body.dark-mode .header {
     --header-bg-color: #333;
+    background-color: var(--header-bg-color);
+  }
+  
+  body.dark-mode {
     --header-text-color: #fff;
     --icon-color: #fff;
   }
@@ -47,5 +58,33 @@
     --header-bg-color: #fff;
     --header-text-color: #000;
     --icon-color: #000;
+  }
+  
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+    }
+  
+    .app-name {
+      font-size: 24px;
+      margin-left: 0;
+    }
+  
+    .app-name-text {
+      font-size: 24px;
+      margin-left: 8px;
+    }
+  
+    .buttons {
+      margin-top: 10px;
+      justify-content: space-between;
+      width: 100%;
+    }
+  
+    .icon {
+      margin-left: 0;
+    }
   }
   
