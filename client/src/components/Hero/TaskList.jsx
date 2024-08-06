@@ -44,6 +44,7 @@ const TaskList = ({ tasks, updateTasks, isCardMode }) => {
     <>
       {notCompletedTasks.length > 0 && (
         <div className={`task-list-container ${isCardMode ? 'card-mode' : ''}`}>
+          <h2>In Progress</h2>
           {notCompletedTasks.map(task => (
             <div key={task.id} className={`task-item ${isCardMode ? 'card-item' : ''}`}>
               <div className="task-content">

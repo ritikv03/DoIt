@@ -11,7 +11,13 @@ const TaskInput = ({ onAddTask }) => {
 
   const handleAddTask = () => {
     if (task.trim()) {
-      onAddTask({ text: task, starred: false });
+      const newTask = {
+        id: Date.now(), // Unique ID based on timestamp
+        text: task,
+        completed: false,
+        starred: false
+      };
+      onAddTask(newTask);
       setTask('');
     }
   };
