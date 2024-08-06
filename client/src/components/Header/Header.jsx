@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { FaSearch, FaSun, FaMoon, FaThList, FaThLarge, FaBars } from 'react-icons/fa';
 import { SiRedux } from 'react-icons/si';
 import './Header.css';
-import './Navbar.css'; // You can include this if you have specific styles for Navbar
+import './Navbar.css';
+import Hero from '../Hero/Hero';
 
 const Header = () => {
   const [isCardMode, setIsCardMode] = useState(false);
@@ -20,6 +21,7 @@ const Header = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+    document.body.classList.toggle('menu-open', !isMenuOpen); // Toggle the menu-open class on the body
   };
 
   return (
@@ -45,6 +47,9 @@ const Header = () => {
           <div className="greeting">Hey, ABCD</div>
         </div>
       </div>
+      <main className={`hero ${isMenuOpen ? 'menu-open' : ''}`}>
+        <Hero />
+      </main>
     </>
   );
 };

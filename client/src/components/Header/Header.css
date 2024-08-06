@@ -30,7 +30,7 @@
 .buttons {
   display: flex;
   align-items: center;
-  margin-right: 30px; /* Increased right margin */
+  margin-right: 30px;
 }
 
 .icon {
@@ -82,10 +82,19 @@ body:not(.dark-mode) {
     margin-top: 10px;
     justify-content: space-between;
     width: 100%;
-    margin-right: 20px; /* Adjusted for smaller screens */
+    margin-right: 20px;
   }
 
   .icon {
     margin-left: 0;
   }
+}
+
+.hero {
+  transition: margin-left 0.3s ease;
+  margin-left: 20px; /* Default margin */
+}
+
+.hero.menu-open {
+  margin-left: 270px; /* Adjust when navbar is open */
 }
