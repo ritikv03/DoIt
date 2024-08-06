@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaSearch, FaSun, FaMoon, FaThList, FaThLarge, FaBars } from 'react-icons/fa';
 import { SiRedux } from 'react-icons/si';
 import './Header.css';
@@ -6,9 +6,21 @@ import './Navbar.css';
 import Hero from '../Hero/Hero';
 
 const Header = () => {
+  // Initialize dark mode state based on local storage
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedDarkMode = localStorage.getItem('isDarkMode');
+    return savedDarkMode ? JSON.parse(savedDarkMode) : false;
+  });
   const [isCardMode, setIsCardMode] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle('dark-mode', isDarkMode);
+  }, [isDarkMode]);
+
+  useEffect(() => {
+    localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
 
   const handleModeSwitch = () => {
     setIsCardMode(!isCardMode);
@@ -16,12 +28,11 @@ const Header = () => {
 
   const handleThemeSwitch = () => {
     setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle('dark-mode', !isDarkMode);
   };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    document.body.classList.toggle('menu-open', !isMenuOpen); // Toggle the menu-open class on the body
+    document.body.classList.toggle('menu-open', !isMenuOpen);
   };
 
   return (
