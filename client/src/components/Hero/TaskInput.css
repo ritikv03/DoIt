@@ -2,11 +2,11 @@
     background-color: rgba(200, 236, 200, 0.803); /* Light green color */
     padding: 20px;
     border-radius: 8px;
-    width: calc(100% - 40px); /* Full width minus margins */
-    margin: 20px; /* Maintain margins */
+    width: calc(100% - 70px); /* Full width minus margins */
+    margin: 20px 20px 20px 20px; /* Same margins as header padding */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-  }
+}
   
   .task-textarea {
     width: 100%;
