@@ -1,90 +1,91 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: transparent;
-    color: var(--header-text-color);
-    transition: background-color 0.3s ease;
-    position: relative;
-    z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: var(--header-text-color);
+  transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 1000;
+}
+
+.app-name {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+}
+
+.menu-toggle-icon {
+  margin-right: 20px;
+}
+
+.app-name-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: green;
+  margin-left: 8px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  margin-right: 30px; /* Increased right margin */
+}
+
+.icon {
+  margin-left: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  font-size: 24px;
+  color: var(--icon-color);
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+body.dark-mode .header {
+  --header-bg-color: #333;
+  background-color: var(--header-bg-color);
+}
+
+body.dark-mode {
+  --header-text-color: #fff;
+  --icon-color: #fff;
+}
+
+body:not(.dark-mode) {
+  --header-bg-color: #fff;
+  --header-text-color: #000;
+  --icon-color: #000;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
   }
-  
+
   .app-name {
-    display: flex;
-    align-items: center;
-    font-size: 30px;
+    font-size: 24px;
+    margin-left: 0;
   }
-  
-  .menu-toggle-icon {
-    margin-right: 20px;
-  }
-  
+
   .app-name-text {
-    font-size: 30px;
-    font-weight: bold;
-    color: green;
+    font-size: 24px;
     margin-left: 8px;
   }
-  
+
   .buttons {
-    display: flex;
-    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+    width: 100%;
+    margin-right: 20px; /* Adjusted for smaller screens */
   }
-  
+
   .icon {
-    margin-left: 20px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    font-size: 24px;
-    color: var(--icon-color);
+    margin-left: 0;
   }
-  
-  .icon:hover {
-    transform: scale(1.2);
-  }
-  
-  body.dark-mode .header {
-    --header-bg-color: #333;
-    background-color: var(--header-bg-color);
-  }
-  
-  body.dark-mode {
-    --header-text-color: #fff;
-    --icon-color: #fff;
-  }
-  
-  body:not(.dark-mode) {
-    --header-bg-color: #fff;
-    --header-text-color: #000;
-    --icon-color: #000;
-  }
-  
-  @media (max-width: 768px) {
-    .header {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 10px;
-    }
-  
-    .app-name {
-      font-size: 24px;
-      margin-left: 0;
-    }
-  
-    .app-name-text {
-      font-size: 24px;
-      margin-left: 8px;
-    }
-  
-    .buttons {
-      margin-top: 10px;
-      justify-content: space-between;
-      width: 100%;
-    }
-  
-    .icon {
-      margin-left: 0;
-    }
-  }
-  
+}
