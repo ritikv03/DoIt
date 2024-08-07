@@ -1,17 +1,21 @@
 .task-list-container {
   padding: 20px;
   border-radius: 8px;
-  width: calc(100% - 50px);
-  margin: 20px;
+  width: calc(100% - 50px); /* Full width minus margins */
+  margin: 20px; /* Same margins as TaskInput */
   box-sizing: border-box;
-  border: none;
-  box-shadow: none;
+  border: none; /* Remove border outline */
+  box-shadow: none; /* Remove box shadow */
 }
 
 .card-mode .task-item {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 .task-item {
@@ -33,8 +37,9 @@
 }
 
 .task-text {
-  flex: 1;
-  font-size: 18px;
+  flex: 1; /* Allow text to take up available space */
+  font-size: 18px; /* Increase font size */
+  margin-right: 10px; /* Space between text and icons */
 }
 
 .task-text.completed {
@@ -45,20 +50,22 @@
 .task-icons {
   display: flex;
   align-items: center;
+  justify-content: flex-end; /* Align icons to the right */
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 .task-edit, .task-star, .task-delete {
   cursor: pointer;
   margin-left: 10px;
-  color: grey;
+  color: grey; /* Default color */
 }
 
 .task-star.filled {
-  color: black;
+  color: black; /* Color when filled */
 }
 
 body.dark-mode .task-star.filled {
-  color: yellow;
+  color: yellow; /* Color when filled in dark mode */
 }
 
 .task-divider {
