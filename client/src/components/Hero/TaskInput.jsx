@@ -15,7 +15,7 @@ const TaskInput = ({ onAddTask }) => {
         id: Date.now(), // Unique ID based on timestamp
         text: task,
         completed: false,
-        starred: false
+        starred: false,
       };
       onAddTask(newTask);
       setTask('');

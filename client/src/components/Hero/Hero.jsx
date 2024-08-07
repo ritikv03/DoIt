@@ -10,15 +10,16 @@ const Hero = ({ isCardMode }) => {
     setTasks(savedTasks);
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
   const addTask = (task) => {
-    const updatedTasks = [...tasks, task];
-    setTasks(updatedTasks);
-    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+    setTasks([...tasks, task]);
   };
 
   const updateTasks = (updatedTasks) => {
     setTasks(updatedTasks);
-    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   };
 
   return (
