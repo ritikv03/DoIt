@@ -6,7 +6,6 @@ const Hero = ({ isCardMode }) => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    // Load tasks from localStorage when the component mounts
     const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
     setTasks(savedTasks);
   }, []);
