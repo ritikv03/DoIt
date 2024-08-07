@@ -8,18 +8,28 @@
   box-shadow: none; /* Remove box shadow */
 }
 
+.card-mode .task-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 3 cards per row minimum */
+  gap: 20px; /* Gap between cards */
+}
+
 .card-mode .task-item {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: column; /* Stack items vertically in card mode */
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  margin-bottom: 10px;
+}
+
+.card-mode .task-content {
+  display: flex;
+  justify-content: space-between; /* Ensure space between text and icons */
 }
 
 .task-item {
   display: flex;
+  justify-content: space-between; /* Ensure space between text and icons */
   align-items: center;
   padding: 10px 0;
   box-sizing: border-box;
@@ -27,7 +37,6 @@
 }
 
 .task-content {
-  flex: 1;
   display: flex;
   align-items: center;
 }
@@ -37,9 +46,9 @@
 }
 
 .task-text {
-  flex: 1; /* Allow text to take up available space */
+  flex: 1;
   font-size: 18px; /* Increase font size */
-  margin-right: 10px; /* Space between text and icons */
+  margin-right: 10px;
 }
 
 .task-text.completed {
@@ -50,8 +59,6 @@
 .task-icons {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Align icons to the right */
-  flex-shrink: 0; /* Prevent shrinking */
 }
 
 .task-edit, .task-star, .task-delete {
@@ -87,7 +94,9 @@ body.dark-mode .task-star.filled {
 }
 
 .completed-task-item {
-  display: flex;
+  display: flex; /* Change from grid to flex for consistency */
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
   align-items: center;
   padding: 10px 0;
   box-sizing: border-box;
