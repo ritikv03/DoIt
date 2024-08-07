@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
-import { FaReact } from 'react-icons/fa'; // Import React icon
+import { SiRedux } from 'react-icons/si';
 import './Login.css'; // Make sure to create a corresponding CSS file for styling
 
 const Login = () => {
@@ -41,7 +41,7 @@ const Login = () => {
     <div className="login-page">
       <div className="login-container">
         <div className="login-logo">
-          <FaReact size={60} color="#61dafb" /> {/* React icon */}
+          <SiRedux size={60} color="green" />
           <h1>DoIt</h1>
         </div>
         <form onSubmit={handleSubmit}>
